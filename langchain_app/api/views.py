@@ -22,4 +22,6 @@ class FileUploadView(APIView):
         else:
             return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-from django.db import models
+# class LangchainView(APIView):
+#     def get (self, request):
+        
