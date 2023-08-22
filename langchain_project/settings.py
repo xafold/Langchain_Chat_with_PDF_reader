@@ -76,7 +76,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'langchain.wsgi.application'
+WSGI_APPLICATION = 'langchain_project.wsgi.application'
 
 
 # Database
