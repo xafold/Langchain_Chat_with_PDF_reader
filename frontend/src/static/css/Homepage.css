@@ -86,6 +86,10 @@ span {
   margin-top: 10px;
   background-color: #28a745
 }
+.process-button {
+  margin-top: 10px;
+  background-color: red
+}
 
 .upload-button:hover {
   background-color: #218838; 

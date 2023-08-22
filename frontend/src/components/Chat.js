@@ -1,31 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import axios from "axios";
+import "../static/css/Chat.css";
 
-const Chat = ({ onSendMessage }) => {
-    const [message, setMessage] = useState('');
+function ChatComponent() {
+    const [message, setMessage] = useState("");
+    // const [response, setResponse] = useState("");
 
-    const handleMessageChange = (event) => {
-        setMessage(event.target.value);
-    };
-
-    const handleKeyDown = (event) => {
-        if (event.key === 'Enter') {
-            event.preventDefault();
-            if (message.trim() !== '') {
-                onSendMessage(message);
-                setMessage('');
-            }
+    const handleSendMessage = () => {
+        if (message.trim() === "") {
+            return;
         }
+        setMessage("");
+        axios
+            .post("/send-message/", { message })
+            .then((res) => {
+                console.log(res.data);
+            })
+            .catch((err) => {
+                console.error(err);
+            });
     };
 
     return (
-        <textarea
-            rows="3"
-            placeholder="Type your message..."
-            value={message}
-            onChange={handleMessageChange}
-            onKeyDown={handleKeyDown}
-        />
+        <div className="chat-container">
+            <input
+                className="message-input"
+                type="text"
+                placeholder="Ask your questions...."
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+            />
+            <button className="send-button" onClick={handleSendMessage}>
+                Send
+            </button>
+            {/* {response && <div className="response">{response}</div>} */}
+        </div>
     );
-};
+}
 
-export default Chat;
+export default ChatComponent;

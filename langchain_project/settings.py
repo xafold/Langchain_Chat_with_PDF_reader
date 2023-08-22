@@ -12,9 +12,12 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+import sys
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# sys.path.append(BASE_DIR)
 
 
 # Quick-start development settings - unsuitable for production
@@ -55,7 +58,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'langchain.urls'
+ROOT_URLCONF = 'langchain_project.urls'
 
 TEMPLATES = [
     {
@@ -151,3 +154,7 @@ CORS_ALLOW_HEADERS = [
     "Content-Type",
     "Custom-Header",
 ]
+
+# Add the path to the project's root directory
+
+

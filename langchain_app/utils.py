@@ -1,4 +1,3 @@
-from dotenv import load_dotenv
 import os
 from pypdf import PdfReader
 from langchain.text_splitter import CharacterTextSplitter
@@ -7,7 +6,7 @@ from langchain.embeddings import HuggingFaceInstructEmbeddings
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from langchain.chat_models import ChatOpenAI
-import torch
+from dotenv import load_dotenv
 
 def get_pdf_text(pdf_docs):
     text = ""
@@ -42,6 +41,7 @@ def get_conversation_chain(vectorstore):
     )
     return conversation_chain
 
+# def user_input(message, conversation):
 
 def main():
     load_dotenv()

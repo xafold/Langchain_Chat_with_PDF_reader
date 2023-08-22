@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Grid } from "@mui/material";
 import axios from "axios";
 import "../static/css/Homepage.css";
+import Chat from "./Chat";
 
 function Homepage(props) {
     const [files, setFiles] = useState([]);
@@ -13,6 +14,10 @@ function Homepage(props) {
         const droppedFiles = [...e.dataTransfer.files];
         setFiles(droppedFiles);
         setDragOver(true);
+    };
+
+    const handleProcess = () => {
+
     };
 
     const handleUpload = () => {
@@ -93,6 +98,14 @@ function Homepage(props) {
                         <button className="upload-button" onClick={handleUpload}>
                             Upload
                         </button>
+                    </div>
+                    <div>
+                    <button className="process-button" onClick={handleProcess}>
+                            Process
+                        </button>
+                    </div>
+                    <div>
+                        <Chat />
                     </div>
                 </Grid>
             </Grid>
